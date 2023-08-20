@@ -1,4 +1,4 @@
-package com.github.melodyjoke.ideapluginlearning
+package com.teamsolo.bricks
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls

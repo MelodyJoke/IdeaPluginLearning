@@ -1,18 +1,22 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.melodyjoke.ideapluginlearning</id>
-    <name>IdeaPluginLearning Template</name>
+    <id>com.teamsolo.bricks</id>
+    <name>Bricks</name>
     <vendor>melodyjoke</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.melodyjoke.ideapluginlearning.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <annotator language="JAVA"
+                   implementationClass="com.teamsolo.bricks.annotators.SimpleAnnotator"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.melodyjoke.ideapluginlearning.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+
+    <actions>
+    </actions>
 </idea-plugin>

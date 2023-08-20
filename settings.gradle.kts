@@ -1,1 +1,1 @@
-rootProject.name = "IdeaPluginLearning"
+rootProject.name = "Bricks"
