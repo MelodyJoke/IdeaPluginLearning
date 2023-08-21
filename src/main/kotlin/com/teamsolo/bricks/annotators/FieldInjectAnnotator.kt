@@ -9,28 +9,17 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.*
 import com.intellij.psi.util.PsiUtil
 import com.intellij.psi.util.parentOfType
+import com.teamsolo.bricks.Constants.Companion.ACCORDING_FIELD_FIELD
+import com.teamsolo.bricks.Constants.Companion.CONTENT_FIELD_FIELD
+import com.teamsolo.bricks.Constants.Companion.FIELD_INJECT_ANNOTATION_CLASS
+import com.teamsolo.bricks.Constants.Companion.ID_FIELD_FIELD
+import com.teamsolo.bricks.Constants.Companion.MATCH_FIELD_FIELD
+import com.teamsolo.bricks.Constants.Companion.METHOD_FIELD
+import com.teamsolo.bricks.Constants.Companion.METHOD_FIELD_SEPARATOR
+import com.teamsolo.bricks.Constants.Companion.SERVICE_FIELD
 import java.util.*
 
 class FieldInjectAnnotator : Annotator {
-
-    companion object {
-
-        const val FIELD_INJECT_ANNOTATION_CLASS = "com.huizhixin.sys.aspect.annotation.FieldInjectHolder"
-
-        const val SERVICE_FIELD = "service"
-
-        const val ID_FIELD_FIELD = "idField"
-
-        const val CONTENT_FIELD_FIELD = "contentField"
-
-        const val MATCH_FIELD_FIELD = "matchField"
-
-        const val METHOD_FIELD = "method"
-
-        const val ACCORDING_FIELD_FIELD = "accordingField"
-
-        const val METHOD_FIELD_SEPARATOR = "||"
-    }
 
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
         if (element is PsiAnnotation) {
@@ -97,17 +86,11 @@ class FieldInjectAnnotator : Annotator {
 
                                 val exists = field != null
 
-                                val parentOfField = element.parentOfType<PsiField>()
-
-                                val thisFieldName = parentOfField?.name
-
-                                val self = Objects.equals(field?.name, thisFieldName)
-
                                 val textRange = it.textRange
 
                                 val fieldDefRange = TextRange(textRange.startOffset + 1, textRange.endOffset - 1)
 
-                                if (exists && !self) {
+                                if (exists) {
                                     holder.newSilentAnnotation(HighlightSeverity.INFORMATION).range(fieldDefRange).textAttributes(DefaultLanguageHighlighterColors.HIGHLIGHTED_REFERENCE).create()
                                 } else {
                                     holder.newAnnotation(HighlightSeverity.ERROR, "Unresolved field").range(fieldDefRange).highlightType(ProblemHighlightType.LIKE_UNKNOWN_SYMBOL).create()

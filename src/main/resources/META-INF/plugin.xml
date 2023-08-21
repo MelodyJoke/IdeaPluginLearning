@@ -12,6 +12,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <annotator language="JAVA"
                    implementationClass="com.teamsolo.bricks.annotators.FieldInjectAnnotator"/>
+        <completion.contributor language="JAVA"
+                                implementationClass="com.teamsolo.bricks.contributors.FieldInjectCompletionContributor"/>
     </extensions>
 
     <applicationListeners>
