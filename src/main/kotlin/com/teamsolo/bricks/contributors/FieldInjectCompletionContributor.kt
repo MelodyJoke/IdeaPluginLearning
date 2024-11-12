@@ -66,6 +66,8 @@ class FieldInjectCompletionContributor : CompletionContributor() {
                             }
 
                             CONTENT_FIELD_FIELD, MATCH_FIELD_FIELD -> {
+                                result.addElement(LookupElementBuilder.create("none").withIcon(AllIcons.Nodes.EmptyNode))
+
                                 destClass?.allFields?.forEach {
                                     val fieldName = it.name
 

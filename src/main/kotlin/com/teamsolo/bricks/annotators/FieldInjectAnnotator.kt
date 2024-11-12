@@ -84,7 +84,7 @@ class FieldInjectAnnotator : Annotator {
                             attribute.value?.let {
                                 val field = destClass?.findFieldByName(fieldName, true)
 
-                                val exists = field != null
+                                val exists = fieldName == "none" || field != null
 
                                 val textRange = it.textRange
 
