@@ -12,6 +12,7 @@ import com.intellij.psi.util.parentOfType
 import com.teamsolo.bricks.Constants.Companion.ACCORDING_FIELD_FIELD
 import com.teamsolo.bricks.Constants.Companion.CONTENT_FIELD_FIELD
 import com.teamsolo.bricks.Constants.Companion.FIELD_INJECT_ANNOTATION_CLASS
+import com.teamsolo.bricks.Constants.Companion.FIELD_NONE
 import com.teamsolo.bricks.Constants.Companion.ID_FIELD_FIELD
 import com.teamsolo.bricks.Constants.Companion.MATCH_FIELD_FIELD
 import com.teamsolo.bricks.Constants.Companion.METHOD_FIELD
@@ -84,7 +85,7 @@ class FieldInjectAnnotator : Annotator {
                             attribute.value?.let {
                                 val field = destClass?.findFieldByName(fieldName, true)
 
-                                val exists = fieldName == "none" || field != null
+                                val exists = fieldName == FIELD_NONE || field != null
 
                                 val textRange = it.textRange
 

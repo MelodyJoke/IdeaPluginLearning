@@ -12,6 +12,7 @@ import com.intellij.util.ProcessingContext
 import com.teamsolo.bricks.Constants.Companion.ACCORDING_FIELD_FIELD
 import com.teamsolo.bricks.Constants.Companion.CONTENT_FIELD_FIELD
 import com.teamsolo.bricks.Constants.Companion.FIELD_INJECT_ANNOTATION_CLASS
+import com.teamsolo.bricks.Constants.Companion.FIELD_NONE
 import com.teamsolo.bricks.Constants.Companion.ID_FIELD_FIELD
 import com.teamsolo.bricks.Constants.Companion.MATCH_FIELD_FIELD
 import com.teamsolo.bricks.Constants.Companion.METHOD_FIELD
@@ -66,7 +67,7 @@ class FieldInjectCompletionContributor : CompletionContributor() {
                             }
 
                             CONTENT_FIELD_FIELD, MATCH_FIELD_FIELD -> {
-                                result.addElement(LookupElementBuilder.create("none").withIcon(AllIcons.Nodes.EmptyNode))
+                                result.addElement(LookupElementBuilder.create(FIELD_NONE).withIcon(AllIcons.Nodes.EmptyNode))
 
                                 destClass?.allFields?.forEach {
                                     val fieldName = it.name

@@ -19,5 +19,7 @@ class Constants {
         const val ACCORDING_FIELD_FIELD = "accordingField"
 
         const val METHOD_FIELD_SEPARATOR = "||"
+
+        const val FIELD_NONE = "none"
     }
 }
